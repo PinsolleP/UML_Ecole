@@ -1,5 +1,7 @@
 package Entities;
 
+import java.util.Scanner;
+
 public class Address {
     // =========================
     // ATTRIBUTS
@@ -11,7 +13,6 @@ public class Address {
     // =========================
     // CONSTRUCTEURS
     // =========================
-
     /**
      * @param street
      * @param city
@@ -21,6 +22,31 @@ public class Address {
         this.street = street;
         this.city = city;
         this.postCode = postCode;
+    }
+
+    public Address(Scanner scanner){
+        String inputStreet;
+        String inputCity;
+        String inputPostCode;
+
+        System.out.println("Entrez le nom de la rue");
+        do {
+            inputStreet = scanner.nextLine();
+        } while (inputStreet.isEmpty());
+        this.street = inputStreet;
+
+        System.out.println("Entrez le nom de la ville");
+        do {
+            inputCity = scanner.nextLine();
+        } while (inputCity.isEmpty());
+        this.city = inputCity;
+
+        System.out.println("Entrez le code postale");
+        do{
+            inputPostCode = scanner.nextLine();
+        } while (inputPostCode.isEmpty());
+        this.postCode = inputPostCode;
+
     }
 
     // =========================

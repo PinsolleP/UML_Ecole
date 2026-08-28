@@ -1,6 +1,8 @@
 package Entities;
 
 import utils.Input;
+
+import java.time.LocalDate;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -68,7 +70,9 @@ public class Session {
                 String firstName = scanner.next();
                 System.out.println("Entrez le nom de famille");
                 String lastName = scanner.next();
-                Director director = new Director(pseudo, firstName, lastName, Input.inputDate(scanner,"Entrez la date de naissance"), null, random);
+                LocalDate birthDate = Input.inputDate(scanner,"Entrez la date de naissance");
+                Address address = new Address(scanner);
+                Director director = new Director(pseudo, firstName, lastName, birthDate, address, random);
                 School.instance.setDirector(director);
                 System.out.println(director);
             }
