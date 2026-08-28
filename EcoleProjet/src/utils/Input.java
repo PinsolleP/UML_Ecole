@@ -36,6 +36,12 @@ public interface Input {
         return res;
     }
 
+    /**
+     * Function that return the date that at been input by user
+     * @param scanner
+     * @param message
+     * @return
+     */
     static LocalDate inputDate(Scanner scanner, String message) {
         LocalDate inputDateTime = null;
         while (inputDateTime == null) {

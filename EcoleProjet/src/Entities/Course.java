@@ -10,6 +10,9 @@ public class Course {
     private LocalDate endDate;
     private ArrayList<Student> studentsAttendingCourse;
 
+    /*
+        Constructor
+     */
     public Course(String courseId, String name, LocalDate startDate, LocalDate endDate) {
         this.courseId = courseId;
         this.name = name;
@@ -17,6 +20,9 @@ public class Course {
         this.endDate = endDate;
     }
 
+    /*
+        Getter and setter
+     */
     public String getCourseId() {
         return courseId;
     }

@@ -25,6 +25,13 @@ public class School {
     /*
         Public Method
      */
+
+    /**
+     * Find a User by userName and password and if it doesn't exist return null
+     * @param username
+     * @param password
+     * @return
+     */
     public User tryLogin(String username, String password){
         ArrayList<User> allUser = getAllUser();
         for(User user: allUser){
@@ -37,6 +44,11 @@ public class School {
         return null;
     }
 
+    /**
+     * Search if the username is already assigned to a User
+     * @param username
+     * @return
+     */
     public boolean findUsername(String username){
         ArrayList<User> allUser = getAllUser();
         for(User user: allUser){
@@ -47,6 +59,10 @@ public class School {
         return false;
     }
 
+    /**
+     * Return the list of all the User students + director + teacher + admin
+     * @return
+     */
     public ArrayList<User> getAllUser(){
         ArrayList<User> listUsers = new ArrayList<User>();
         listUsers.addAll(students);

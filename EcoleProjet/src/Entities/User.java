@@ -11,6 +11,9 @@ public abstract class User implements UserInterface {
     LocalDate dateOfBirth;
     Address address;
 
+    /*
+        Constructor
+     */
     public User(String userName, String password, Role role, String firstName, String lastName, LocalDate dateOfBirth, Address address) {
         this.userName = userName;
         this.password = password;
@@ -31,6 +34,9 @@ public abstract class User implements UserInterface {
         this.address = address;
     }
 
+    /*
+        Getter and Setter
+     */
     public String getUserName() {
         return userName;
     }

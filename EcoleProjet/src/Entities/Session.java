@@ -8,10 +8,9 @@ import java.util.Scanner;
 public class Session {
     private User currentUser;
 
-    public void authenticate(String userName, String password){
-        currentUser = School.instance.tryLogin(userName, password);
-    }
-
+    /*
+        Constructor
+     */
     public void authenticate(Scanner scanner) {
         System.out.println("Entrez le pseudo");
         String pseudo = scanner.next();
@@ -20,10 +19,30 @@ public class Session {
         authenticate(pseudo, password);
     }
 
+    /*
+        Public Method
+    */
+
+    /**
+     * set the user if he can find to the username and password
+     * @param userName
+     * @param password
+     */
+    public void authenticate(String userName, String password){
+        currentUser = School.instance.tryLogin(userName, password);
+    }
+
+    /**
+     * Disconnect the current user of the session
+     */
     public void disconnect(){
         currentUser = null;
     }
 
+    /**
+     * Create a new Director
+     * @param scanner
+     */
     public void createANewDirector(Scanner scanner){
         if(currentUser == null){
             System.out.println("Vous devez être authentifié pour réaliser ceci");
@@ -60,6 +79,9 @@ public class Session {
         }
     }
 
+    /*
+        Getter
+     */
     public User getCurrentUser() {
         return currentUser;
     }
