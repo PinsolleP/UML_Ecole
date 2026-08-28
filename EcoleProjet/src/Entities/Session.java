@@ -49,6 +49,7 @@ public class Session {
                 String lastName = scanner.next();
                 Director director = new Director(pseudo, firstName, lastName, Input.inputDate(scanner,"Entrez la date de naissance"), null);
                 School.instance.setDirector(director);
+                System.out.println(director);
             }
             else {
                 System.out.println("Impossible de créer un directeur il existe déjà");
