@@ -1,12 +1,21 @@
 package Entities;
 
 public class Address {
+    // =========================
+    // ATTRIBUTS
+    // =========================
     private final String street;
     private final String city;
     private final String postCode;
 
-    /*
-        Constructor
+    // =========================
+    // CONSTRUCTEURS
+    // =========================
+
+    /**
+     * @param street
+     * @param city
+     * @param postCode
      */
     public Address(String street, String city, String postCode) {
         this.street = street;
@@ -14,9 +23,9 @@ public class Address {
         this.postCode = postCode;
     }
 
-    /*
-        ToString
-     */
+    // =========================
+    // TO_STRING
+    // =========================
     @Override
     public String toString() {
         return "Address{" +

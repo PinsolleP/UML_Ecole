@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class School {
+    // =========================
+    // ATTRIBUTS
+    // =========================
     public static School instance;
     Admin admin;
     Director director;
@@ -11,8 +14,12 @@ public class School {
     ArrayList<Teacher> teachers;
     ArrayList<Course> courses;
 
-    /*
-        Constructor
+    // =========================
+    // CONSTRUCTEURS
+    // =========================
+
+    /**
+     * @param admin
      */
     public School(Admin admin) {
         this.admin = admin;
@@ -22,10 +29,9 @@ public class School {
         instance = this;
     }
 
-    /*
-        Public Method
-     */
-
+    // =========================
+    // METHODES PUBLIQUES
+    // =========================
     /**
      * Find a User by userName and password and if it doesn't exist return null
      * @param username
@@ -77,9 +83,9 @@ public class School {
     }
 
 
-    /*
-        Getter et setter
-     */
+    // =========================
+    // GETTER AND SETTER
+    // =========================
     public Admin getAdmin() {
         return admin;
     }

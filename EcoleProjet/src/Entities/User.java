@@ -4,6 +4,9 @@ import java.time.LocalDate;
 import java.util.Random;
 
 public abstract class User implements UserInterface {
+    // =========================
+    // ATTRIBUTS
+    // =========================
     String userName;
     String password;
     Role role;
@@ -12,10 +15,20 @@ public abstract class User implements UserInterface {
     LocalDate dateOfBirth;
     Address address;
 
-    /*
-        Constructor
+    // =========================
+    // CONSTRUCTEURS
+    // =========================
+
+    /**
+     * @param userName
+     * @param password
+     * @param role
+     * @param firstName
+     * @param lastName
+     * @param dateOfBirth
+     * @param address
      */
-    public User(String userName, String password, Role role, String firstName, String lastName, LocalDate dateOfBirth, Address address) {
+    protected User(String userName, String password, Role role, String firstName, String lastName, LocalDate dateOfBirth, Address address) {
         this.userName = userName;
         this.password = password;
         this.role = role;
@@ -25,7 +38,17 @@ public abstract class User implements UserInterface {
         this.address = address;
     }
 
-    public User(String userName, Role role, String firstName, String lastName, LocalDate dateOfBirth, Address address, Random random) {
+    /**
+     * Create a user with a random pass
+     * @param userName
+     * @param role
+     * @param firstName
+     * @param lastName
+     * @param dateOfBirth
+     * @param address
+     * @param random
+     */
+    protected User(String userName, Role role, String firstName, String lastName, LocalDate dateOfBirth, Address address, Random random) {
         this.userName = userName;
         this.password = generateRandomPass(8, random);
         this.role = role;
@@ -35,9 +58,9 @@ public abstract class User implements UserInterface {
         this.address = address;
     }
 
-    /*
-        Public Method
-     */
+    // =========================
+    // METHODES PUBLIQUES
+    // =========================
     public String generateRandomPass(int numberOfCharacters, Random random){
         StringBuilder randomPass = new StringBuilder();
         for (int current = 0; current < numberOfCharacters; current++) {
@@ -46,9 +69,9 @@ public abstract class User implements UserInterface {
         return randomPass.toString();
     }
 
-    /*
-        Getter and Setter
-     */
+    // =========================
+    // GETTER AND SETTER
+    // =========================
     public String getUserName() {
         return userName;
     }

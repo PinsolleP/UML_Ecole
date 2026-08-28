@@ -4,16 +4,16 @@ import java.time.LocalDate;
 import java.util.Random;
 
 public class Teacher extends User {
-    /*
-        Constructor
-     */
+    // =========================
+    // CONSTRUCTEURS
+    // =========================
     public Teacher(String userName, String firstName, String lastName, LocalDate dateOfBirth, Address address, Random random) {
         super(userName, Role.TEACHER, firstName, lastName, dateOfBirth, address, random);
     }
 
-    /*
-        Public Method
-     */
+    // =========================
+    // METHODES PUBLIQUES
+    // =========================
     /**
      * Authorize return true if as permission return false if not
      * @param nameAuthorization

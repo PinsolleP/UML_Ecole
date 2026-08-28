@@ -4,14 +4,24 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Course {
+    // =========================
+    // ATTRIBUTS
+    // =========================
     private String courseId;
     private String name;
     private LocalDate startDate;
     private LocalDate endDate;
     private ArrayList<Student> studentsAttendingCourse;
 
-    /*
-        Constructor
+    // =========================
+    // CONSTRUCTEURS
+    // =========================
+
+    /**
+     * @param courseId
+     * @param name
+     * @param startDate
+     * @param endDate
      */
     public Course(String courseId, String name, LocalDate startDate, LocalDate endDate) {
         this.courseId = courseId;
@@ -20,9 +30,9 @@ public class Course {
         this.endDate = endDate;
     }
 
-    /*
-        Getter and setter
-     */
+    // =========================
+    // GETTER AND SETTER
+    // =========================
     public String getCourseId() {
         return courseId;
     }

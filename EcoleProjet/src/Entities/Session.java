@@ -1,16 +1,22 @@
 package Entities;
 
 import utils.Input;
-
-import java.util.Locale;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Session {
+    // =========================
+    // ATTRIBUTS
+    // =========================
     private User currentUser;
 
-    /*
-        Constructor
+
+    // =========================
+    // METHODES PUBLIQUES
+    // =========================
+    /**
+     * Set the user to the input ask for username and password
+     * @param scanner
      */
     public void authenticate(Scanner scanner) {
         System.out.println("Entrez le pseudo");
@@ -19,11 +25,6 @@ public class Session {
         String password = scanner.next();
         authenticate(pseudo, password);
     }
-
-    /*
-        Public Method
-    */
-
     /**
      * set the user if he can find to the username and password
      * @param userName
@@ -80,9 +81,9 @@ public class Session {
         }
     }
 
-    /*
-        Getter
-     */
+    // =========================
+    // GETTER
+    // =========================
     public User getCurrentUser() {
         return currentUser;
     }
