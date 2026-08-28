@@ -19,4 +19,8 @@ public class Session {
             System.out.println("Vous n'avez pas l'autorisation pour creer un directeur");
         }
     }
+
+    public User getCurrentUser() {
+        return currentUser;
+    }
 }
