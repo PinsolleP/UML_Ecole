@@ -29,9 +29,11 @@ public class School {
         ArrayList<User> allUser = getAllUser();
         for(User user: allUser){
             if (user.userName.equals(username) && user.password.equals(password)){
+                System.out.println("Compte trouvé");
                 return user;
             }
         }
+        System.out.println("Compte introuvable");
         return null;
     }
 
@@ -39,8 +41,12 @@ public class School {
         ArrayList<User> listUsers = new ArrayList<User>();
         listUsers.addAll(students);
         listUsers.addAll(teachers);
-        listUsers.add(admin);
-        listUsers.add(director);
+        if(admin != null) {
+            listUsers.add(admin);
+        }
+        if(director != null) {
+            listUsers.add(director);
+        }
         return listUsers;
     }
 
