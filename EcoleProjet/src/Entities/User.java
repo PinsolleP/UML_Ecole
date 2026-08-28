@@ -1,3 +1,5 @@
+package Entities;
+
 import java.time.LocalDate;
 
 public abstract class User {
@@ -86,7 +88,7 @@ public abstract class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "Entities.User{" +
                 "userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
                 ", role=" + role +
