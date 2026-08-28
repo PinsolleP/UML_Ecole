@@ -37,6 +37,16 @@ public class School {
         return null;
     }
 
+    public boolean findUsername(String username){
+        ArrayList<User> allUser = getAllUser();
+        for(User user: allUser){
+            if (user.userName.equals(username)){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public ArrayList<User> getAllUser(){
         ArrayList<User> listUsers = new ArrayList<User>();
         listUsers.addAll(students);

@@ -23,6 +23,7 @@ public abstract class User implements UserInterface {
 
     public User(String userName, Role role, String firstName, String lastName, LocalDate dateOfBirth, Address address) {
         this.userName = userName;
+        this.password = "randompass";
         this.role = role;
         this.firstName = firstName;
         this.lastName = lastName;

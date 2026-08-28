@@ -1,5 +1,7 @@
 package Entities;
 
+import utils.Input;
+
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -18,13 +20,39 @@ public class Session {
         authenticate(pseudo, password);
     }
 
-    public void createANewDirector(){
+    public void disconnect(){
+        currentUser = null;
+    }
+
+    public void createANewDirector(Scanner scanner){
         if(currentUser == null){
             System.out.println("Vous devez être authentifié pour réaliser ceci");
             return;
         }
         if(currentUser.authorize(Permission.CREATE_A_DIRECTOR)){
-            System.out.println("Creation d'un directeur");
+            if(School.instance.getDirector() == null) {
+                System.out.println("Entrez le pseudo");
+                boolean pseudoExist = true;
+                String pseudo = "";
+                while (pseudoExist){
+                    pseudo = scanner.next();
+                    if(School.instance.findUsername(pseudo)){
+                        System.out.println("Ce pseudo existe déjà veuillez reesayer");
+                    }
+                    else{
+                        pseudoExist = false;
+                    }
+                }
+                System.out.println("Entrez le prénom");
+                String firstName = scanner.next();
+                System.out.println("Entrez le nom de famille");
+                String lastName = scanner.next();
+                Director director = new Director(pseudo, firstName, lastName, Input.inputDate(scanner,"Entrez la date de naissance"), null);
+                School.instance.setDirector(director);
+            }
+            else {
+                System.out.println("Impossible de créer un directeur il existe déjà");
+            }
         }
         else {
             System.out.println("Vous n'avez pas l'autorisation pour creer un directeur");

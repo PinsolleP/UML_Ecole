@@ -30,6 +30,7 @@ public class Main {
             switch (user.getRole()) {
                 case ADMIN:
                     System.out.println("1- Creer un nouveau Directeur");
+                    System.out.println("2- Déconnection");
                     break;
                 case DIRECTOR:
                     System.out.println("...");
@@ -61,7 +62,11 @@ public class Main {
                 case ADMIN:
                     switch (choice){
                         case 1:
-                            session.createANewDirector();
+                            session.createANewDirector(scanner);
+                            break;
+                        case 2:
+                            System.out.println("Deconnection");
+                            session.disconnect();
                             break;
                     }
                     break;
