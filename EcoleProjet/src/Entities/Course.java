@@ -92,6 +92,6 @@ public class Course {
      * @param student élève à ajouter
      */
     public void addStudent(Student student) {
-        this.students.add(student);
+        this.studentsAttendingCourse.add(student);
     }
 }
