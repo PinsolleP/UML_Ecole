@@ -1,6 +1,6 @@
 import java.time.LocalDate;
 
-public class User {
+public abstract class User {
     String userName;
     String password;
     Role role;
