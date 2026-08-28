@@ -13,15 +13,16 @@ public class Main {
         Session session = new Session();
         boolean sessionIsOn = true;
         while (sessionIsOn) {
-            System.out.println("Que souhaitez vous faire ?");
-            choice(scanner, session);
+            sessionIsOn = choice(scanner, session);
         }
         scanner.close();
     }
 
-    public static void choice(Scanner scanner, Session session){
+    public static boolean choice(Scanner scanner, Session session){
         User user = session.getCurrentUser();
         // Affichage des choix
+        System.out.println("Que souhaitez vous faire ?");
+        System.out.println("0- Quitter le programme");
         if(user == null) {
             System.out.println("1- Authentification");
         }
@@ -58,18 +59,20 @@ public class Main {
         else {
             switch (user.getRole()) {
                 case ADMIN:
-                    System.out.println("1- Creer un nouveau Directeur");
+                    switch (choice){
+                        case 1:
+                            session.createANewDirector();
+                            break;
+                    }
                     break;
                 case DIRECTOR:
-                    System.out.println("...");
                     break;
                 case STUDENT:
-                    System.out.println("1- Voir mes cours");
                     break;
                 case TEACHER:
-                    System.out.println("1- Voir mes éleves");
                     break;
             }
         }
+        return choice != 0;
     }
 }
