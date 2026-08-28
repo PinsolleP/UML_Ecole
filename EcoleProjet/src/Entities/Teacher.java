@@ -25,8 +25,8 @@ public class Teacher extends User {
 	 * @param dateOfBirth date de naissance
 	 * @param address     adresse de l'enseignant
 	 */
-	public Teacher(String userName, String firstName, String lastName, LocalDate dateOfBirth, Address address) {
-		super(userName, Role.TEACHER, firstName, lastName, dateOfBirth, address);
+	public Teacher(String userName, String firstName, String lastName, LocalDate dateOfBirth, Address address, Random random) {
+		super(userName, Role.TEACHER, firstName, lastName, dateOfBirth, address, random);
 		this.courses = new ArrayList<>();
 	}
 
@@ -56,7 +56,7 @@ public class Teacher extends User {
 		ArrayList<Student> students = new ArrayList<>();
 
 		for (Course course : courses) {
-			for (Student student : course.getStudents()) {
+			for (Student student : course.getStudentsAttendingCourse()) {
 				if (!students.contains(student)) {
 					students.add(student);
 				}
@@ -79,18 +79,6 @@ public class Teacher extends User {
 			return false;
 		}
 	}
-    /**
-     * Authorize return true if as permission return false if not
-     * @param nameAuthorization
-     * @return
-     */
-    @Override
-    public boolean authorize(Permission nameAuthorization) {
-        switch (nameAuthorization){
-            default:
-                return false;
-        }
-    }
 
     // =========================
     // GETTER
