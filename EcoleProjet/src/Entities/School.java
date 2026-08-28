@@ -82,6 +82,96 @@ public class School {
         return listUsers;
     }
 
+    public void addDirector(Director director){
+        if ( this.director == null){
+            this.director = director;
+        }else{
+            System.out.println("Un directeur est déjà associé a cette école.");
+        }
+    }
+
+    public void addStudent (Student student){
+        students.add(student);
+    }
+
+    public void addTeacher (Teacher teacher){
+        teachers.add(teacher);
+    }
+
+    public void addCourse (Course course){
+        courses.add(course);
+    }
+
+    public void updateStudent(Student student) {
+        for (int i = 0; i < students.size(); i++) {
+            if (students.get(i).getUserName().equals(student.getUserName())) {
+                students.set(i, student);
+                return;
+            }
+        }
+    }
+
+    public void updateTeacher(Teacher teacher) {
+        for (int i = 0; i < teachers.size(); i++) {
+            if (teachers.get(i).getUserName().equals(teacher.getUserName())) {
+                teachers.set(i, teacher);
+                return;
+            }
+        }
+    }
+
+    public void updateCourse(Course course) {
+        for (int i = 0; i < courses.size(); i++) {
+            if (courses.get(i).getCourseId().equals(course.getCourseId())) {
+                courses.set(i, course);
+                return;
+            }
+        }
+    }
+
+    public void deleteTeacher(Teacher teacher) {
+        for (int i = 0; i < teachers.size(); i++) {
+            if (teachers.get(i).getUserName().equals(teacher.getUserName())) {
+                teachers.remove(i);
+                return;
+            }
+        }
+    }
+
+    public void deleteStudent(Student student) {
+        for (int i = 0; i < students.size(); i++) {
+            if (students.get(i).getUserName().equals(student.getUserName())) {
+                students.remove(i);
+                return;
+            }
+        }
+    }
+
+    public void deleteCourse(Course course) {
+        for (int i = 0; i < courses.size(); i++) {
+            if (courses.get(i).getCourseId().equals(course.getCourseId())) {
+                courses.remove(i);
+                return;
+            }
+        }
+    }
+
+    public void addStudentToCourse (Student student, Course course){
+        if (!course.getStudentsAttendingCourse().contains(student)){
+            course.addStudent(student);
+        }else{
+            System.out.println("L'étudiant est déjà inscrit à ce cours.");
+        }
+    }
+
+    public void addTeacherToCourse (Teacher teacher, Course course){
+        if (course.getTeacher()== null) {
+            course.setTeacher(teacher);
+        }else{
+            System.out.println("Un enseignant est déjà affecté à ce cours.");
+        }
+    }
+
 
     // =========================
     // GETTER AND SETTER

@@ -3,10 +3,15 @@ package Entities;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+/**
+ * Représente un cours de l'école.
+ * Un cours possède une période et une liste d'élèves inscrits.
+ */
 public class Course {
     // =========================
     // ATTRIBUTS
     // =========================
+    private Teacher teacher;
     private String courseId;
     private String name;
     private LocalDate startDate;
@@ -23,16 +28,37 @@ public class Course {
      * @param startDate
      * @param endDate
      */
+    /**
+     * Construit un cours avec son identifiant, son nom et sa période.
+     * La liste des élèves inscrits est initialisée vide.
+     *
+     * @param courseId identifiant du cours
+     * @param name nom du cours
+     * @param startDate date de début du cours
+     * @param endDate date de fin du cours
+     */
     public Course(String courseId, String name, LocalDate startDate, LocalDate endDate) {
         this.courseId = courseId;
         this.name = name;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.studentsAttendingCourse = new ArrayList<>();
     }
 
     // =========================
     // GETTER AND SETTER
     // =========================
+    /*
+        Getter and setter
+     */
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
+
     public String getCourseId() {
         return courseId;
     }
@@ -69,7 +95,16 @@ public class Course {
         return studentsAttendingCourse;
     }
 
-    public void addStudentsAttendingCourse(Student studentAttendingCourse) {
-        this.studentsAttendingCourse.add(studentAttendingCourse);
+    /*
+     * Public method
+     */
+
+    /**
+     * Ajoute un élève au cours.
+     *
+     * @param student élève à ajouter
+     */
+    public void addStudent(Student student) {
+        this.studentsAttendingCourse.add(student);
     }
 }
