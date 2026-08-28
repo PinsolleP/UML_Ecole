@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Course {
+    private Teacher teacher;
     private String courseId;
     private String name;
     private LocalDate startDate;
@@ -18,11 +19,20 @@ public class Course {
         this.name = name;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.studentsAttendingCourse = new ArrayList<>();
     }
 
     /*
         Getter and setter
      */
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
+
     public String getCourseId() {
         return courseId;
     }
