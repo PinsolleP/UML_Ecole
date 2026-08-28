@@ -3,6 +3,7 @@ package Entities;
 import utils.Input;
 
 import java.util.Locale;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Session {
@@ -43,7 +44,7 @@ public class Session {
      * Create a new Director
      * @param scanner
      */
-    public void createANewDirector(Scanner scanner){
+    public void createANewDirector(Scanner scanner, Random random){
         if(currentUser == null){
             System.out.println("Vous devez être authentifié pour réaliser ceci");
             return;
@@ -66,7 +67,7 @@ public class Session {
                 String firstName = scanner.next();
                 System.out.println("Entrez le nom de famille");
                 String lastName = scanner.next();
-                Director director = new Director(pseudo, firstName, lastName, Input.inputDate(scanner,"Entrez la date de naissance"), null);
+                Director director = new Director(pseudo, firstName, lastName, Input.inputDate(scanner,"Entrez la date de naissance"), null, random);
                 School.instance.setDirector(director);
                 System.out.println(director);
             }

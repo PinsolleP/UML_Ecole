@@ -4,22 +4,24 @@ import Entities.Session;
 import Entities.User;
 import utils.Input;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Random random = new Random();
         Scanner scanner = new Scanner(System.in);
         Admin admin = new Admin("admin", "admin", "admin", "admin", null, null);
         new School(admin);
         Session session = new Session();
         boolean sessionIsOn = true;
         while (sessionIsOn) {
-            sessionIsOn = choice(scanner, session);
+            sessionIsOn = choice(scanner, session, random);
         }
         scanner.close();
     }
 
-    public static boolean choice(Scanner scanner, Session session){
+    public static boolean choice(Scanner scanner, Session session, Random random){
         User user = session.getCurrentUser();
         // Affichage des choix
         System.out.println("Que souhaitez vous faire ?");
@@ -67,7 +69,7 @@ public class Main {
                 case ADMIN:
                     switch (choice){
                         case 1:
-                            session.createANewDirector(scanner);
+                            session.createANewDirector(scanner, random);
                             break;
                         case 2:
                             System.out.println("Deconnection");

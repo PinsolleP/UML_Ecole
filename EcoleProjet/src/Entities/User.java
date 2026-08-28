@@ -1,6 +1,7 @@
 package Entities;
 
 import java.time.LocalDate;
+import java.util.Random;
 
 public abstract class User implements UserInterface {
     String userName;
@@ -24,14 +25,25 @@ public abstract class User implements UserInterface {
         this.address = address;
     }
 
-    public User(String userName, Role role, String firstName, String lastName, LocalDate dateOfBirth, Address address) {
+    public User(String userName, Role role, String firstName, String lastName, LocalDate dateOfBirth, Address address, Random random) {
         this.userName = userName;
-        this.password = "randompass";
+        this.password = generateRandomPass(8, random);
         this.role = role;
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
         this.address = address;
+    }
+
+    /*
+        Public Method
+     */
+    public String generateRandomPass(int numberOfCharacters, Random random){
+        StringBuilder randomPass = new StringBuilder();
+        for (int current = 0; current < numberOfCharacters; current++) {
+            randomPass.append((char)('a'+random.nextInt(26)));
+        }
+        return randomPass.toString();
     }
 
     /*
