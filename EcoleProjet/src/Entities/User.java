@@ -2,7 +2,7 @@ package Entities;
 
 import java.time.LocalDate;
 
-public abstract class User {
+public abstract class User implements UserInterface {
     String userName;
     String password;
     Role role;
