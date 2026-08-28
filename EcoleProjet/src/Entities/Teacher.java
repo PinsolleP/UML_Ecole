@@ -50,6 +50,28 @@ public class Teacher extends User {
 	public void addCourse(Course course) {
 		courses.add(course);
 	}
+	
+	/**
+	 * Retourne la liste des élèves inscrits aux cours de l'enseignant.
+	 * 
+	 * Les élèves présents dans plusieurs cours ne sont ajoutés qu'une seule fois.
+	 *
+	 * @return la liste des élèves de l'enseignant
+	 */
+	public ArrayList<Student> getStudents() {
+
+		ArrayList<Student> students = new ArrayList<>();
+
+		for (Course course : courses) {
+			for (Student student : course.getStudents()) {
+				if (!students.contains(student)) {
+					students.add(student);
+				}
+			}
+		}
+
+		return students;
+	}
 
 	/**
 	 * Authorize return true if as permission return false if not
