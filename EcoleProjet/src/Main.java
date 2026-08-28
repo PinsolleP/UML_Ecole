@@ -2,6 +2,7 @@ import Entities.Admin;
 import Entities.School;
 import Entities.Session;
 import Entities.User;
+import utils.Input;
 
 import java.util.Scanner;
 
@@ -22,7 +23,7 @@ public class Main {
         User user = session.getCurrentUser();
         // Affichage des choix
         System.out.println("Que souhaitez vous faire ?");
-        System.out.println("0- Quitter le programme");
+        System.out.println("q- Quitter le programme");
         if(user == null) {
             System.out.println("1- Authentification");
         }
@@ -45,7 +46,11 @@ public class Main {
         }
 
         // input
-        int choice = scanner.nextInt();
+        Integer choice = Input.inputIntegerBetween(scanner, "Entrez votre choix",1, Integer.MAX_VALUE);
+        if(choice == null){
+            return false;
+        }
+
         // traitement resultat
         if(user == null) {
             switch (choice) {
@@ -78,6 +83,6 @@ public class Main {
                     break;
             }
         }
-        return choice != 0;
+        return true;
     }
 }
