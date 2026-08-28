@@ -1,2 +1,2 @@
-public class Director {
+public class Director extends User{
 }
